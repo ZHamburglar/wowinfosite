@@ -10,8 +10,12 @@ var users = require('./routes/users');
 var wowcharacter = require('./routes/wowcharacter');
 var wowguild = require('./routes/wowguild');
 var wowitem = require('./routes/wowitem');
-var wowmount = require('./routes/wowmount')
-var wowpets = require('./routes/wowpets')
+var wowmount = require('./routes/wowmount');
+var wowpets = require('./routes/wowpets');
+var wowpvpbg = require('./routes/wowpvpbg')
+var wowserverstatus = require('./routes/wowserverstatus')
+
+
 
 
 
@@ -37,6 +41,10 @@ app.use('/wowguild', wowguild);
 app.use('/wowitem', wowitem);
 app.use('/wowmount', wowmount);
 app.use('/wowpets', wowpets);
+app.use('/wowpvpbg', wowpvpbg);
+app.use('/wowserverstatus', wowserverstatus);
+
+
 
 
 
