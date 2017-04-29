@@ -18,6 +18,8 @@ var wowquests = require('./routes/wowquests');
 var wowachievements = require('./routes/wowachievements');
 var wowauction = require('./routes/wowauction');
 var wowrecipes = require('./routes/wowrecipes');
+var wowzones = require('./routes/wowzones');
+
 
 
 
@@ -54,6 +56,8 @@ app.use('/wowquests', wowquests);
 app.use('/wowachievements', wowachievements);
 app.use('/wowauction', wowauction);
 app.use('/wowrecipes', wowrecipes);
+app.use('/wowzones', wowzones);
+
 
 
 
