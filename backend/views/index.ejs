@@ -2,10 +2,93 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>WoW Info Backend</h1>
+    <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
+    <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
+    <p>List of available routes:</p>
+    <div class="container-fluid">
+
+      <p>/wowdata/battlegroups</p>
+      <p>/wowdata/characterraces</p>
+      <p>/wowdata/characterclasses</p>
+      <p>/wowdata/characterachievements</p>
+      <p>/wowdata/guildrewards</p>
+      <p>/wowdata/guildperks</p>
+      <p>/wowdata/guildachievements</p>
+      <p>/wowdata/itemclasses</p>
+      <p>/wowdata/talents</p>
+      <p>/wowdata/pettypes</p>
+      <p>/wowguild/:server/:guildname</p>
+      <p>/wowitem/item/:itemid</p>
+      <p>/wowitem/set/:setid</p>
+      <p>/wowmount</p>
+      <p>/wowpets/ability/:abilityid</p>
+      <p>/wowpets/species/:speciesid</p>
+      <p>/wowpets/stats/:speciesid/:level/:breedid/:quality</p>
+      <p>/wowpvpbg/:size</p>
+      <p>/wowquests/:questid</p>
+      <p>/wowrecipes/:recipeid</p>
+      <p>/wowserverstatus/</p>
+      <p>/wowzones/</p>
+      <p>/wowzones/:zoneid</p>
+    </div>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Available Routes:</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>/</td>
+        <td>Sends you to the index/homepage.</td>
+      </tr>
+      <tr>
+        <td>/wowachievements/:achievementid</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>/wowauction/:serverid</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>/wowcharacter/:server/:charactername</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+      </tr>
+    </tbody>
+  </table>
   </body>
 </html>

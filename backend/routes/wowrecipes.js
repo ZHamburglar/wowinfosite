@@ -5,7 +5,6 @@ var path = require('path');
 var qs = require('querystring');
 require('dotenv').config()
 
-//sizes can be '2v2' '3v3' '5v5' and 'rbg'
 router.get('/:recipeid', function(req, res, next) {
   request('https://us.api.battle.net/wow/recipe/'+req.params.recipeid+'?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {

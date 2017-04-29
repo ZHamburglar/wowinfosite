@@ -21,16 +21,6 @@ var wowrecipes = require('./routes/wowrecipes');
 var wowzones = require('./routes/wowzones');
 var wowdata = require('./routes/wowdata');
 
-
-
-
-
-
-
-
-
-
-
 var app = express();
 
 // view engine setup
@@ -60,19 +50,6 @@ app.use('/wowauction', wowauction);
 app.use('/wowrecipes', wowrecipes);
 app.use('/wowzones', wowzones);
 app.use('/wowdata', wowdata);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
