@@ -12,8 +12,15 @@ var wowguild = require('./routes/wowguild');
 var wowitem = require('./routes/wowitem');
 var wowmount = require('./routes/wowmount');
 var wowpets = require('./routes/wowpets');
-var wowpvpbg = require('./routes/wowpvpbg')
-var wowserverstatus = require('./routes/wowserverstatus')
+var wowpvpbg = require('./routes/wowpvpbg');
+var wowserverstatus = require('./routes/wowserverstatus');
+var wowquests = require('./routes/wowquests');
+var wowachievements = require('./routes/wowachievements');
+var wowauction = require('./routes/wowauction');
+var wowrecipes = require('./routes/wowrecipes');
+
+
+
 
 
 
@@ -43,6 +50,15 @@ app.use('/wowmount', wowmount);
 app.use('/wowpets', wowpets);
 app.use('/wowpvpbg', wowpvpbg);
 app.use('/wowserverstatus', wowserverstatus);
+app.use('/wowquests', wowquests);
+app.use('/wowachievements', wowachievements);
+app.use('/wowauction', wowauction);
+app.use('/wowrecipes', wowrecipes);
+
+
+
+
+
 
 
 
