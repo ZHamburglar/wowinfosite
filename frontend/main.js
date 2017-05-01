@@ -10,7 +10,7 @@ function buttonclick(){
   })
   .done(function(response){
     var parsed = JSON.parse(response)
-    console.log('data: ', parsed);
+    console.log('data: ', response);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     alert('oh no!');

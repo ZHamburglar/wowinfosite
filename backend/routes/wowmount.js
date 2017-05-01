@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
         var arrayOfObjects = JSON.parse(data)
         arrayOfObjects.lastUpdated = [];
         arrayOfObjects.lastUpdated.push(Date.now())
-        jsonconvert = JSON.stringify(body)
+        jsonconvert = JSON.parse(body)
         arrayOfObjects.mounts= [];
         arrayOfObjects.mounts.push(jsonconvert);
         console.log('arrayOfObjects ',arrayOfObjects)
