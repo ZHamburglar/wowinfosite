@@ -5,7 +5,8 @@ $( document ).ready(function() {
 function buttonclick(){
   {
   $.ajax({
-    url: 'http://localhost:3000/wowmount'
+    url: 'http://localhost:3000/wowmount',
+    dataType: 'json'
   })
   .done(function(response){
     var parsed = JSON.parse(response)
@@ -13,7 +14,7 @@ function buttonclick(){
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     alert('oh no!');
-    console.log(textStatus, errorThrown);
+    console.log("Bad Request! ", textStatus, errorThrown);
   })
   .always(function() {
     console.log('I always run no matter what');
