@@ -9,6 +9,8 @@ require('dotenv').config()
 
 
 
+
+
 router.get('/', function(req, res, next) {
   request('https://us.api.battle.net/wow/mount/?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
@@ -30,7 +32,12 @@ router.get('/', function(req, res, next) {
       console.log('error:', error);
       console.log('statusCode:', response && response.statusCode);
       console.log('body:', body);
-      res.send(body);
+
+      var filePath = './json/weekly/mounts.json'
+      var resolvedPath = path.resolve(filePath);
+      console.log(resolvedPath);
+      return res.sendFile(resolvedPath);
+      // res.sendFile(__dirname + '../json/weekly/mounts.json');
   });
 });
 
