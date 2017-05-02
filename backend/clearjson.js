@@ -10,7 +10,10 @@ function buildclearjson(extension, timeline){
   fs.stat('./json/'+timeline+'/'+extension+'.json', function (err, stats) {
     //  console.log(stats);
      if (err) {
-         return console.log(gutil.colors.magenta(err));
+       fs.writeFile('./json/'+timeline+'/'+extension+'.json', '{"lastUpdated":[],"'+extension+'":[]}', function (err) {
+            if (err) throw err;
+            console.log(''+extension+'.json has been created.');
+        });
      }
      fs.unlink('./json/'+timeline+'/'+extension+'.json',function(err){
           if(err) return console.log(err);

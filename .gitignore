@@ -1,1 +1,7 @@
 backend/.env
+
+
+# JSON Ignores
+backend/json/weekly/characterclass.json
+backend/json/weekly/characterraces.json
+backend/json/weekly/mounts.json
