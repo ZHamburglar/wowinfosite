@@ -5,11 +5,9 @@ $( document ).ready(function() {
 function buttonclick(){
   {
   $.ajax({
-    url: 'http://localhost:3000/wowmount',
-    dataType: 'json'
+    url: 'http://localhost:3000/wowmount'
   })
   .done(function(response){
-    var parsed = JSON.parse(response)
     console.log('data: ', response);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
