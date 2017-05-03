@@ -3,9 +3,16 @@ var router = express.Router();
 var request = require('request');
 var path = require('path');
 var qs = require('querystring');
+var gutil = require('gulp-util');
+
 require('dotenv').config();
 var fs = require('fs');
 
+// fs.exists('foo.txt', function(exists) {
+//   if (exists) {
+//     // do something
+//   }
+// });
 
 router.get('/:server/:charactername', function(req, res, next) {
   console.log("current time: ", Date.now())
@@ -13,18 +20,31 @@ router.get('/:server/:charactername', function(req, res, next) {
   var character = req.params.charactername
   var firstLetter = character.charAt(0).toUpperCase()
   console.log("First Letter ", firstLetter)
-  if (!fs.exists('./json/characters/' + server)) {
-    fs.mkdir('./json/characters/' + server)
-    if (!fs.exists('./json/characters/' + server + '/' + firstLetter)) {
-      fs.mkdir('./json/characters/' + server + '/' + firstLetter);
-      if (!fs.exists('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
-        fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[],"character":[]}');
-        buildJSON();
-      }
-    }
-  }
 
-  function buildJSON() {
+
+  if (!fs.existsSync('./json/characters/' + server)){
+      fs.mkdirSync('./json/characters/' + server);
+  }
+  if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter)){
+      fs.mkdirSync('./json/characters/' + server + '/' + firstLetter);
+  }
+  if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
+    fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[0],"character":[]}', function (err) {
+         if (err) throw err;
+         console.log(character+'.json has been created.');
+     });
+  }
+  // if (!fs.exists('./json/characters/' + server)) {
+  //   fs.mkdir('./json/characters/' + server)
+  //   if (!fs.exists('./json/characters/' + server + '/' + firstLetter)) {
+  //     fs.mkdir('./json/characters/' + server + '/' + firstLetter);
+  //     if (!fs.exists('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
+  //       fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[],"character":[]}');
+  //       buildJSON();
+  //     }
+  //   }
+  // }
+
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
       if (err) throw err
       var arrayOfObjects = JSON.parse(data)
@@ -55,7 +75,7 @@ router.get('/:server/:charactername', function(req, res, next) {
         sendJSON();
       }
     });
-  }
+
 
   function sendJSON() {
     var filePath = './json/characters/' + server + '/' + firstLetter + '/' + character + '.json'
