@@ -13,35 +13,15 @@ router.get('/:server/:charactername', function(req, res, next) {
     var character = req.params.charactername
     var firstLetter = character.charAt(0).toUpperCase()
     console.log("First Letter ",firstLetter)
-    if (fs.exists('./json/characters/'+server)){
-      console.log('1')
-    } else {
-      console.log('2')
-      fs.mkdir('./json/characters/'+server);
+    if (!fs.exists('./json/characters/'+server)){
+      fs.mkdir('./json/characters/'+server)
+      if (!fs.exists('./json/characters/'+server+'/'+firstLetter)){
+        fs.mkdir('./json/characters/'+server+'/'+firstLetter);
+        if (!fs.exists('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json')){
+          fs.writeFile('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json', '{"lastUpdated":[],"character":[]}');
+        }
+      }
     }
-
-    if (fs.exists('./json/characters/'+server+'/'+firstLetter)){
-      console.log('3')
-    } else {
-      console.log('4')
-      fs.mkdir('./json/characters/'+server+'/'+firstLetter);
-    }
-
-    if (fs.exists('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json')){
-      console.log('5')
-    } else {
-      console.log('6')
-      // fs.writeFile('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json', '{"lastUpdated":[],"character":[]}');
-      fs.writeFile('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json', '{"lastUpdated":[],"character":[]}', function (err) {
-           if (err) throw err;
-           console.log('.json has been created.');
-       });
-    }
-
-
-
-
-
 
     fs.readFile('./json/characters/'+server+'/'+firstLetter+'/'+character+'.json', 'utf-8', function(err, data) {
       if (err) throw err
