@@ -8,12 +8,6 @@ var gutil = require('gulp-util');
 require('dotenv').config();
 var fs = require('fs');
 
-// fs.exists('foo.txt', function(exists) {
-//   if (exists) {
-//     // do something
-//   }
-// });
-
 router.get('/:server/:charactername', function(req, res, next) {
   console.log("current time: ", Date.now())
   var server = req.params.server
@@ -30,6 +24,7 @@ router.get('/:server/:charactername', function(req, res, next) {
   }
   if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
     fs.writeFileSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[0],"character":[]}')
+    console.log("it makes it to this point!")
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
       if (err) throw err
       //copied from here
@@ -52,8 +47,6 @@ router.get('/:server/:charactername', function(req, res, next) {
                 sendJSON();
               })
             })
-            console.log('error:', error);
-            console.log('statusCode:', response && response.statusCode);
           });
     });
   }
