@@ -33,7 +33,6 @@ function characterbuttonclick() {
         console.log('data: ', response);
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        alert('oh no!');
         console.log("Bad Request! ", textStatus, errorThrown);
       })
       .always(function() {
