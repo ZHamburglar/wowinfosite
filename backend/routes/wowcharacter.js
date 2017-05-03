@@ -35,8 +35,14 @@ router.get('/:server/:charactername', function(req, res, next) {
       lastJSONUpdate = arrayOfObjects.lastUpdated
       if ((Date.now() - lastJSONUpdate) > 700000000) {
         console.log('Week has passed...calling API')
+        console.log('1: ', req.params.server);
+        console.log('2: ', req.params.charactername);
+        console.log('3: ', process.env.BATTLENET_API_KEY);
+        console.log('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY)
+
         request('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY,
           function(error, response, body) {
+            console.log("I gets to this section")
             fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
               var arrayOfObjects = JSON.parse(data)
               arrayOfObjects.lastUpdated = [];
