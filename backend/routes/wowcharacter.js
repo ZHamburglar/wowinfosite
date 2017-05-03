@@ -29,27 +29,41 @@ router.get('/:server/:charactername', function(req, res, next) {
       fs.mkdirSync('./json/characters/' + server + '/' + firstLetter);
   }
   if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
-    fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[0],"character":[]}', function (err) {
-         if (err) throw err;
-         console.log(character+'.json has been created.');
-     });
+    fs.writeFileSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[0],"character":[]}')
+    fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
+      if (err) throw err
+      //copied from here
+      var arrayOfObjects = JSON.parse(data)
+      lastJSONUpdate = arrayOfObjects.lastUpdated
+      console.log('Week has passed...calling API')
+        request('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY,
+          function(error, response, body) {
+            fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
+              var arrayOfObjects = JSON.parse(data)
+              arrayOfObjects.lastUpdated = [];
+              arrayOfObjects.lastUpdated.push(Date.now())
+              jsonconvert = JSON.parse(body)
+              arrayOfObjects.character = [];
+              arrayOfObjects.character.push(jsonconvert);
+              console.log('arrayOfObjects ', arrayOfObjects)
+              fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
+                if (err) throw err
+                console.log('JSON Sent!');
+                sendJSON();
+              })
+            })
+            console.log('error:', error);
+            console.log('statusCode:', response && response.statusCode);
+          });
+    });
   }
-  // if (!fs.exists('./json/characters/' + server)) {
-  //   fs.mkdir('./json/characters/' + server)
-  //   if (!fs.exists('./json/characters/' + server + '/' + firstLetter)) {
-  //     fs.mkdir('./json/characters/' + server + '/' + firstLetter);
-  //     if (!fs.exists('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
-  //       fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[],"character":[]}');
-  //       buildJSON();
-  //     }
-  //   }
-  // }
+
 
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
       if (err) throw err
+      //copied from here
       var arrayOfObjects = JSON.parse(data)
       lastJSONUpdate = arrayOfObjects.lastUpdated
-      console.log('this section is working.', lastJSONUpdate)
       if ((Date.now() - lastJSONUpdate) > 700000000) {
         console.log('Week has passed...calling API')
         request('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY,
