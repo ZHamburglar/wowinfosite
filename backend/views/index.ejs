@@ -6,10 +6,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>WoW Info Backend</h1>
-    <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
-    <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
-    <p>List of available routes:</p>
+    <h1 class="title">WoW Info Backend</h1>
+    <div class="main">
+      <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
+      <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
+      <p>List of available routes w/ examples:</p>
+    </div>
+
     <div class="container-fluid">
       <table class="table table-hover">
       <thead>
@@ -20,47 +23,47 @@
       </thead>
       <tbody>
         <tr>
-          <td>/</td>
+          <td><a href ="../">/</a></td>
           <td>Sends you to the index/homepage.</td>
         </tr>
         <tr>
-          <td>/wowachievements/:achievementid</td>
-          <td>Doe</td>
+          <td><a href ="../wowachievements/1014">/wowachievements/:achievementid</a></td>
+          <td>Displays an achievement that corresponds with the "achievmentid" parameter.</td>
         </tr>
         <tr>
-          <td>/wowauction/:serverid</td>
-          <td>Doe</td>
+          <td><a href ="../wowauction/malganis">/wowauction/:serverid</a></td>
+          <td>Sends back a url of a .json file of the server's auction house listings in the "server" parameter.</td>
         </tr>
         <tr>
-          <td>/wowcharacter/:server/:charactername</td>
-          <td>Doe</td>
+          <td><a href ="../wowcharacter/malganis/weedmangoku">/wowcharacter/:server/:charactername</a></td>
+          <td>Sends back .json of the character data (general stats, activity feed, items equipped, professions, reputation, titles, achievements, statistics, talents, mounts, pets, progression) of a character as defined within the "server" parameter and "charactername" parameter</td>
         </tr>
         <tr>
-          <td>/wowdata/battlegroups</td>
+          <td><a href ="../wowdata/battlegroups">/wowdata/battlegroups</a></td>
           <td>Moe</td>
         </tr>
         <tr>
-          <td>/wowdata/characterraces</td>
+          <td><a href ="../wowdata/characterraces">/wowdata/characterraces</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowdata/characterclasses</td>
+          <td><a href ="../wowdata/wowdata/characterclasses">/wowdata/characterclasses</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowdata/characterachievements</td>
+          <td><a href ="../wowdata/characterachievements">/wowdata/characterachievements</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowdata/guildrewards</td>
+          <td><a href ="../wowdata/guildrewards">/wowdata/guildrewards</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowdata/guildperks</td>
+          <td><a href ="../wowdata/guildperks">/wowdata/guildperks</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowdata/guildachievements</td>
+          <td><a href ="../wowdata/guildachievements">/wowdata/guildachievements</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
@@ -88,7 +91,7 @@
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowmount</td>
+          <td><a href ="../wowmount">/wowmount</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
@@ -104,23 +107,23 @@
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowpvpbg/:size</td>
+          <td><a href ="../wowpvpbg/3v3">/wowpvpbg/:size</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowquests/:questid</td>
+          <td><a href ="../wowquests/7101">/wowquests/:questid</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowrecipes/:recipeid</td>
+          <td><a href ="../wowrecipes/7751">/wowrecipes/:recipeid</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowserverstatus/</td>
+          <td><a href ="../wowserverstatus/">/wowserverstatus/</a></td>
           <td>Dooley</td>
         </tr>
         <tr>
-          <td>/wowzones/</td>
+          <td><a href ="../wowzones/">/wowzones/</a></td>
           <td>Dooley</td>
         </tr>
         <tr>

@@ -1,8 +1,31 @@
+@font-face {
+    font-family: 'LifeCraft'; /*a name to be used later*/
+    src: url('/fonts/LifeCraft_Font.ttf'); /*URL to font*/
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: yellow;
+  background-color: black;
 }
 
 a {
   color: #00B7FF;
+}
+h1 {
+  font-family: 'LifeCraft';
+  font-size: 72px;
+}
+.title{
+  text-align: center;
+  padding: 30px;
+}
+
+p {
+  font-size: 30px;
+}
+
+.main {
+  padding: 20px;
 }

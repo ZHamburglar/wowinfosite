@@ -4,7 +4,6 @@ var request = require('request');
 var path = require('path');
 var qs = require('querystring');
 var gutil = require('gulp-util');
-
 require('dotenv').config();
 var fs = require('fs');
 
@@ -30,18 +29,19 @@ router.get('/:server/:charactername', function(req, res, next) {
 
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
       if (err) throw err
-      //copied from here
       var arrayOfObjects = JSON.parse(data)
       lastJSONUpdate = arrayOfObjects.lastUpdated
       if ((Date.now() - lastJSONUpdate) > 700000000) {
         console.log('Week has passed...calling API')
-        console.log('1: ', req.params.server);
-        console.log('2: ', req.params.charactername);
-        console.log('3: ', process.env.BATTLENET_API_KEY);
+        console.log('req.params.server: ', req.params.server);
+        console.log('req.params.charactername: ', req.params.charactername);
+        console.log('process.env.BATTLENET_API_KEY: ', process.env.BATTLENET_API_KEY);
         console.log('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY)
-
+        
         request('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY,
           function(error, response, body) {
+            if(error) console.log("THERE WAS AN ERROR ", error)
+
             console.log("I gets to this section")
             fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
               var arrayOfObjects = JSON.parse(data)
@@ -60,11 +60,14 @@ router.get('/:server/:charactername', function(req, res, next) {
             console.log('error:', error);
             console.log('statusCode:', response && response.statusCode);
           });
+
+
+
       } else {
+        console.log('sanity check else')
         sendJSON();
       }
     });
-
 
   function sendJSON() {
     var filePath = './json/characters/' + server + '/' + firstLetter + '/' + character + '.json'
@@ -73,6 +76,5 @@ router.get('/:server/:charactername', function(req, res, next) {
     return res.sendFile(resolvedPath);
   }
 });
-
 
 module.exports = router;
