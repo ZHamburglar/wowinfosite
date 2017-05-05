@@ -1,9 +1,18 @@
 const fs = require('fs');
 var gutil = require('gulp-util');
 
+buildclearjson('battlegroups', 'weekly');
+buildclearjson('characterachievements', 'weekly');
+buildclearjson('characterclass', 'weekly');
+buildclearjson('characterraces', 'weekly');
+buildclearjson('guildachievements', 'weekly');
+buildclearjson('guildperks', 'weekly');
+buildclearjson('guildrewards', 'weekly');
+buildclearjson('itemclasses', 'weekly');
 buildclearjson('mounts', 'weekly');
-buildclearjson('characterclass', 'weekly')
-buildclearjson('characterraces', 'weekly')
+buildclearjson('pettypes', 'weekly');
+buildclearjson('talents', 'weekly');
+buildclearjson('zones', 'weekly');
 
 
 function buildclearjson(extension, timeline){

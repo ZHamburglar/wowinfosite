@@ -2,6 +2,15 @@ backend/.env
 
 
 # JSON Ignores
+backend/json/weekly/battlegroups.json
+backend/json/weekly/characterachievements.json
+backend/json/weekly/guildachievements.json
+backend/json/weekly/guildperks.json
+backend/json/weekly/guildrewards.json
+backend/json/weekly/itemclasses.json
+backend/json/weekly/pettypes.json
+backend/json/weekly/talents.json
+backend/json/weekly/zones.json
 backend/json/weekly/characterclass.json
 backend/json/weekly/characterraces.json
 backend/json/weekly/mounts.json
