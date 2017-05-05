@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var path = require('path');
 var qs = require('querystring');
-var fs = require('fs')
+var fs = require('fs');
 require('dotenv').config()
 // 1 week = 700000000
 
