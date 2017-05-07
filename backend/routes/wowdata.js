@@ -4,6 +4,7 @@ var request = require('request');
 var path = require('path');
 var qs = require('querystring');
 var fs = require('fs');
+var gutil = require('gulp-util');
 require('dotenv').config()
 
 router.get('/battlegroups', function(req, res, next) {

@@ -2,6 +2,8 @@ backend/.env
 
 
 # JSON Ignores
+
+# Weekly
 backend/json/weekly/battlegroups.json
 backend/json/weekly/characterachievements.json
 backend/json/weekly/guildachievements.json
@@ -14,3 +16,6 @@ backend/json/weekly/zones.json
 backend/json/weekly/characterclass.json
 backend/json/weekly/characterraces.json
 backend/json/weekly/mounts.json
+
+# Hourly
+backend/json/hourly/serverstatus.json

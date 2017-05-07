@@ -3,6 +3,8 @@ var router = express.Router();
 var request = require('request');
 var path = require('path');
 var qs = require('querystring');
+var fs = require('fs');
+var gutil = require('gulp-util');
 require('dotenv').config()
 
 //sizes can be '2v2' '3v3' '5v5' and 'rbg'

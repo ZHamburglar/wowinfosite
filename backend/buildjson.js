@@ -13,6 +13,8 @@ buildclearjson('mounts', 'weekly');
 buildclearjson('pettypes', 'weekly');
 buildclearjson('talents', 'weekly');
 buildclearjson('zones', 'weekly');
+buildclearjson('serverstatus', 'hourly');
+
 
 
 

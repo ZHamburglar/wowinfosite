@@ -10,7 +10,6 @@ var cors = require('cors');
 
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var wowcharacter = require('./routes/wowcharacter');
 var wowguild = require('./routes/wowguild');
 var wowitem = require('./routes/wowitem');
@@ -41,7 +40,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/wowcharacter', wowcharacter);
 app.use('/wowguild', wowguild);
 app.use('/wowitem', wowitem);
