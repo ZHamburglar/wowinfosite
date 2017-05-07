@@ -36,10 +36,18 @@ router.get('/', function(req, res, next) {
             })
           })
           console.log('error:', gutil.colors.red(error));
-          console.log('statusCode:', response && response.statusCode);
+          if (response.statusCode >= 200 && response.statusCode < 300){
+            console.log('statusCode:', response && gutil.colors.green(response.statusCode))
+          } else if (response.statusCode >= 300 && response.statusCode < 400){
+            console.log('statusCode:', response && gutil.colors.yellow(response.statusCode))
+          } else if (response.statusCode >= 400 && response.statusCode < 500){
+            console.log('statusCode:', response && gutil.colors.red(response.statusCode))
+          } else if (response.statusCode >= 500 && response.statusCode < 600){
+            console.log('statusCode:', response && gutil.colors.red(response.statusCode))
+          }
         });
     } else {
-      console.log('sanity check else')
+      console.log('sanity check else');
       sendJSON();
     }
   });
