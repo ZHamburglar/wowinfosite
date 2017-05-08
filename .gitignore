@@ -2,6 +2,9 @@ backend/.env
 
 
 # JSON Ignores
+backend/json/items/*
+backend/json/characters/*
+
 
 # Weekly
 backend/json/weekly/battlegroups.json
