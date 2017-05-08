@@ -5,6 +5,7 @@ var path = require('path');
 var qs = require('querystring');
 var fs = require('fs');
 var gutil = require('gulp-util');
+var apistaticcall = require('../modules/apistaticcall')
 require('dotenv').config()
 
 router.get('/battlegroups', function(req, res, next) {
@@ -18,6 +19,7 @@ router.get('/battlegroups', function(req, res, next) {
 });
 
 router.get('/characterraces', function(req, res, next) {
+  
   request('https://us.api.battle.net/wow/data/character/races?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
       fs.readFile('./json/weekly/characterraces.json', 'utf-8', function(err, data) {
