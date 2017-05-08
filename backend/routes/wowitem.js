@@ -27,6 +27,19 @@ router.get('/item/:itemid', function(req, res, next) {
   var folderIndex = itemArea.slice(0, itemlength -3)
   console.log("Item area: ", itemIndex);
   console.log("item folder: ", folderIndex);
+  if (folderIndex < 1000){
+    let folderIndex = 1
+  }
+  if (!fs.existsSync('./json/items/' + folderIndex)){
+      fs.mkdirSync('./json/items/' + folderIndex);
+  }
+  // if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter)){
+  //     fs.mkdirSync('./json/characters/' + server + '/' + firstLetter);
+  // }
+  if (!fs.existsSync('./json/items/' + folderIndex + '/'+ itemArea + '.json')) {
+    fs.writeFileSync('./json/items/' + folderIndex + '/'+ itemArea + '.json', '{"lastUpdated":[0],"item":[]}')
+    console.log("it makes it to this point!")
+  }
 
 
 
@@ -35,7 +48,6 @@ router.get('/item/:itemid', function(req, res, next) {
 
 
 
-  
   request('https://us.api.battle.net/wow/item/'+req.params.itemid+'?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
       console.log('error:', error);
