@@ -19,7 +19,7 @@ router.get('/battlegroups', function(req, res, next) {
 });
 
 router.get('/characterraces', function(req, res, next) {
-  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/character/races?locale=en_US&apikey=")
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/character/races?locale=en_US&apikey=", characterraces)
   // request('https://us.api.battle.net/wow/data/character/races?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
   //   function (error, response, body) {
   //     fs.readFile('./json/weekly/characterraces.json', 'utf-8', function(err, data) {
