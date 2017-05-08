@@ -15,6 +15,12 @@ buildclearjson('talents', 'weekly');
 buildclearjson('zones', 'weekly');
 buildclearjson('serverstatus', 'hourly');
 
+buildDirectory(items);
+buildDirectory(itemsets);
+buildDirectory(characters);
+
+
+
 
 
 
@@ -23,6 +29,12 @@ function buildclearjson(extension, timeline){
           if (err) throw err;
           console.log(''+extension+'.json has been created.');
       });
+  }
+
+  function buildDirectory(folder){
+    if (!fs.existsSync('./json/' + folder)){
+        fs.mkdirSync('./json/' + folder);
+    }
   }
 
 

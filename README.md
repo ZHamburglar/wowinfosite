@@ -1,5 +1,7 @@
 # wowinfosite
 
+At the current moment the project is meant for running on the local machine, but if you want to scale then you will want to convert it from writing to JSON to writing to a database
+
 ## Getting Started
 1. Get a API Developer key from dev.blizzard.com
 2. Create a .env file in the backend directory.
@@ -24,4 +26,5 @@ Build out front end in Angular 4 or React.js.
 #### Back End
 
 Node functions work, but require 2 calls to get correct JSON.
+
 Change structure from folder based to NoSQL?
