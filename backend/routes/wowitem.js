@@ -21,6 +21,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/item/:itemid', function(req, res, next) {
+  var itemArea = req.params.itemid
+  var itemlength = itemArea.length
+  var itemIndex = itemArea.slice(itemlength -3, itemlength)
+  var folderIndex = itemArea.slice(0, itemlength -3)
+  console.log("Item area: ", itemIndex);
+  console.log("item folder: ", folderIndex);
+
+
+
+
+
+
+
+
+  
   request('https://us.api.battle.net/wow/item/'+req.params.itemid+'?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
       console.log('error:', error);
