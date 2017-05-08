@@ -4,6 +4,8 @@ backend/.env
 # JSON Ignores
 backend/json/items/**/
 backend/json/characters/**/
+backend/json/itemsets/**/
+
 
 
 # Weekly

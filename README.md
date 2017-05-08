@@ -1,5 +1,10 @@
 # wowinfosite
 
+### Routes Completed (for now)
+```
+wowcharacter.js
+
+```
 ### Todos
 #### Front End
 Build out front end in Angular 4 or React.js.
