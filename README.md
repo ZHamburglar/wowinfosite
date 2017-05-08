@@ -26,5 +26,5 @@ Build out front end in Angular 4 or React.js.
 #### Back End
 
 Node functions work, but require 2 calls to get correct JSON.
-
+Unsure of using the Auction house route due to return and size of JSON.
 Change structure from folder based to NoSQL?
