@@ -15,9 +15,9 @@ buildclearjson('talents', 'weekly');
 buildclearjson('zones', 'weekly');
 buildclearjson('serverstatus', 'hourly');
 
-buildDirectory(items);
-buildDirectory(itemsets);
-buildDirectory(characters);
+buildDirectory("items");
+buildDirectory("itemsets");
+buildDirectory("characters");
 
 
 
