@@ -9,7 +9,6 @@ require('dotenv').config()
 
 
 module.exports = function(req, res, next, url, directoryIndex) {
-  console.log("yeeeeeehaw ", url, " ", directoryIndex)
   request(url+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
       fs.readFile('./json/weekly/'+directoryIndex+'.json', 'utf-8', function(err, data) {
@@ -21,7 +20,7 @@ module.exports = function(req, res, next, url, directoryIndex) {
         var object = directoryIndex
         arrayOfObjects[directoryIndex]= [];
         arrayOfObjects[directoryIndex].push(jsonconvert);
-        console.log('arrayOfObjects ',arrayOfObjects)
+        // console.log('arrayOfObjects ',arrayOfObjects)
         fs.writeFile('./json/weekly/'+directoryIndex+'.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
           if (err) throw err
           console.log('Done!')
@@ -29,7 +28,7 @@ module.exports = function(req, res, next, url, directoryIndex) {
       })
       console.log('error:', error);
       console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
+      // console.log('body:', body);
       var filePath = './json/weekly/'+directoryIndex+'.json'
       var resolvedPath = path.resolve(filePath);
       console.log(resolvedPath);
