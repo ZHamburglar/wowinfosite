@@ -19,8 +19,8 @@ module.exports = function(req, res, next, url, directoryIndex) {
         arrayOfObjects.lastUpdated.push(Date.now())
         jsonconvert = JSON.parse(body)
         var object = directoryIndex
-        arrayOfObjects.object= [];
-        arrayOfObjects.object.push(jsonconvert);
+        arrayOfObjects.directoryIndex= [];
+        arrayOfObjects.directoryIndex.push(jsonconvert);
         console.log('arrayOfObjects ',arrayOfObjects)
         fs.writeFile('./json/weekly/'+directoryIndex+'.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
           if (err) throw err
