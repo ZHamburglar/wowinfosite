@@ -21,73 +21,31 @@ router.get('/characterclass', function(req, res, next) {
 });
 
 router.get('/characterachievements', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/character/achievements?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/character/achievements?locale=en_US&apikey=", "characterachievements")
 });
 
 router.get('/guildrewards', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/guild/rewards?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/guild/rewards?locale=en_US&apikey=", "guildrewards")
 });
 
 router.get('/guildperks', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/guild/perks?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/guild/perks?locale=en_US&apikey=", "guildperks")
 });
 
 router.get('/guildachievements', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/guild/achievements?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/guild/achievements?locale=en_US&apikey=", "guildachievements")
 });
 
 router.get('/itemclasses', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/item/classes?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/item/classes?locale=en_US&apikey=", "itemclasses")
 });
 
 router.get('/talents', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/talents?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/talents?locale=en_US&apikey=", "talents")
 });
 
 router.get('/pettypes', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/pet/types?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/pet/types?locale=en_US&apikey=", "pettypes")
 });
 
 
