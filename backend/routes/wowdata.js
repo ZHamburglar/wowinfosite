@@ -9,27 +9,15 @@ var apistaticcall = require('../modules/apistaticcall')
 require('dotenv').config()
 
 router.get('/battlegroups', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/battlegroups/?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/battlegroups/?locale=en_US&apikey=", "battlegroups")
 });
 
 router.get('/characterraces', function(req, res, next) {
   apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/character/races?locale=en_US&apikey=", "characterraces")
 });
 
-router.get('/characterclasses', function(req, res, next) {
-  request('https://us.api.battle.net/wow/data/character/classes?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
-    function (error, response, body) {
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
-      console.log('body:', body);
-      res.send(body);
-  });
+router.get('/characterclass', function(req, res, next) {
+  apistaticcall(req, res, next, "https://us.api.battle.net/wow/data/character/classes?locale=en_US&apikey=", "characterclass")
 });
 
 router.get('/characterachievements', function(req, res, next) {
