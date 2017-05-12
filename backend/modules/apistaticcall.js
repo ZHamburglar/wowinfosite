@@ -5,7 +5,7 @@ var path = require('path');
 var qs = require('querystring');
 var fs = require('fs');
 var gutil = require('gulp-util');
-require('dotenv').config()
+require('dotenv').config();
 
 
 module.exports = function(req, res, next, url, directoryIndex) {

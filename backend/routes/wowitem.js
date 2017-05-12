@@ -5,7 +5,10 @@ var path = require('path');
 var qs = require('querystring');
 var fs = require('fs');
 var gutil = require('gulp-util');
-require('dotenv').config()
+var itemfoldercreate = require('../modules/itemfoldercreate');
+
+require('dotenv').config();
+
 
 
 
@@ -25,16 +28,8 @@ router.get('/item/:itemid', function(req, res, next) {
   var itemlength = itemArea.length
   var itemIndex = itemArea.slice(itemlength -3, itemlength)
   var folderIndex = itemArea.slice(0, itemlength -3)
-  // console.log("Item area: ", itemIndex);
-  // console.log("item folder: ", folderIndex);
-  if (folderIndex < 1000) folderIndex = 0
-  if (!fs.existsSync('./json/items/' + folderIndex)){
-      fs.mkdirSync('./json/items/' + folderIndex);
-  }
-  if (!fs.existsSync('./json/items/' + folderIndex + '/'+ itemArea + '.json')) {
-    fs.writeFileSync('./json/items/' + folderIndex + '/'+ itemArea + '.json', '{"lastUpdated":[0],"item":[]}')
-    console.log(gutil.colors.green("it makes it to this point!"));
-  }
+  if (itemArea < 1000) folderIndex = 0
+  itemfoldercreate("items", folderIndex, itemArea, "item")
       fs.readFile('./json/items/' + folderIndex + '/'+ itemArea + '.json', 'utf-8', function(err, data) {
         if (err) throw err
         var arrayOfObjects = JSON.parse(data)
