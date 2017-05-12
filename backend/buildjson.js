@@ -14,6 +14,7 @@ buildclearjson('pettypes', 'weekly');
 buildclearjson('talents', 'weekly');
 buildclearjson('zones', 'weekly');
 buildclearjson('serverstatus', 'hourly');
+buildclearjson('battlegrounds', 'daily');
 
 buildDirectory("items");
 buildDirectory("itemsets");

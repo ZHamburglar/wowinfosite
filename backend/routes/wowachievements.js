@@ -8,6 +8,7 @@ var gutil = require('gulp-util');
 require('dotenv').config()
 
 router.get('/:achievementid', function(req, res, next) {
+
   request('https://us.api.battle.net/wow/achievement/'+req.params.achievementid+'?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
       console.log('error:', error);

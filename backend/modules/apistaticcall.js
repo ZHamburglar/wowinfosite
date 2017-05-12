@@ -8,10 +8,10 @@ var gutil = require('gulp-util');
 require('dotenv').config();
 
 
-module.exports = function(req, res, next, url, directoryIndex) {
+module.exports = function(req, res, next, url, timePeriod, directoryIndex) {
   request(url+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
-      fs.readFile('./json/weekly/'+directoryIndex+'.json', 'utf-8', function(err, data) {
+      fs.readFile('./json/'+timePeriod+'/'+directoryIndex+'.json', 'utf-8', function(err, data) {
         if (err) throw err
         var arrayOfObjects = JSON.parse(data)
         arrayOfObjects.lastUpdated = [];
@@ -21,7 +21,7 @@ module.exports = function(req, res, next, url, directoryIndex) {
         arrayOfObjects[directoryIndex]= [];
         arrayOfObjects[directoryIndex].push(jsonconvert);
         // console.log('arrayOfObjects ',arrayOfObjects)
-        fs.writeFile('./json/weekly/'+directoryIndex+'.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
+        fs.writeFile('./json/'+timePeriod+'/'+directoryIndex+'.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
           if (err) throw err
           console.log('Done!')
         })
@@ -29,7 +29,7 @@ module.exports = function(req, res, next, url, directoryIndex) {
       console.log('error:', error);
       console.log('statusCode:', response && response.statusCode);
       // console.log('body:', body);
-      var filePath = './json/weekly/'+directoryIndex+'.json'
+      var filePath = './json/'+timePeriod+'/'+directoryIndex+'.json'
       var resolvedPath = path.resolve(filePath);
       console.log(resolvedPath);
       res.sendFile(resolvedPath);

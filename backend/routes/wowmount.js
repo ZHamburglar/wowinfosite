@@ -6,13 +6,10 @@ var qs = require('querystring');
 var fs = require('fs');
 var gutil = require('gulp-util');
 require('dotenv').config()
-// 1 week = 700000000
 
 router.get('/', function(req, res, next) {
 
   console.log("current time: ", Date.now())
-
-  //reads the mounts.json file
   fs.readFile('./json/weekly/mounts.json', 'utf-8', function(err, data) {
     // if it doesn't exist, throws an error
     if (err) throw err

@@ -16,9 +16,7 @@ npm run build
 
 ### Routes Completed (for now)
 ```
-wowcharacter.js
-wowdata.js
-wowitem.js
+
 ```
 ### Todos
 #### Front End
