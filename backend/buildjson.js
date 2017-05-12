@@ -19,6 +19,7 @@ buildclearjson('battlegrounds', 'daily');
 buildDirectory("items");
 buildDirectory("itemsets");
 buildDirectory("characters");
+buildDirectory("achievements");
 
 
 
