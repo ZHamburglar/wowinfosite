@@ -15,6 +15,12 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
   }
   if (isNaN(primaryLevel) === false ){
     console.log('It is a number')
+    var itemArea = primaryLevel
+    var itemlength = itemArea.length
+    var itemIndex = itemArea.slice(itemlength -3, itemlength)
+    var folderIndex = itemArea.slice(0, itemlength -3)
+    if (itemArea < 1000) folderIndex = 0
+    console.log("the number ",folderIndex)
   }
   if (isNaN(primaryLevel) === true ){
     console.log('It is a string')
