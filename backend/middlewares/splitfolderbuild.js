@@ -13,15 +13,21 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
     console.log(gutil.colors.green("The "+baseIndex+" directory has been created."));
     fs.mkdirSync('./json/'+baseIndex);
   }
+  // This is the section for Parameters that are numbers
   if (isNaN(primaryLevel) === false ){
-    console.log('It is a number')
-    var itemArea = primaryLevel
-    var itemlength = itemArea.length
-    var itemIndex = itemArea.slice(itemlength -3, itemlength)
-    var folderIndex = itemArea.slice(0, itemlength -3)
-    if (itemArea < 1000) folderIndex = 0
+    var folderIndex = primaryLevel.slice(0, primaryLevel.length -3)
+    if (primaryLevel < 1000) folderIndex = 0
     console.log("the number ",folderIndex)
+    if (!fs.existsSync('./json/' + baseIndex + '/' + folderIndex)){
+      console.log(gutil.colors.green("it makes it to this point!"));
+      fs.mkdirSync('./json/' + baseIndex + '/' + folderIndex);
+    }
+    if (!fs.existsSync('./json/' + baseIndex + '/' + folderIndex + '/'+ primaryLevel + '.json')) {
+      fs.writeFileSync('./json/' + baseIndex + '/' + folderIndex + '/'+ primaryLevel + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
+      console.log(gutil.colors.green("it makes it to this point 2!"));
+    }
   }
+  // This is the section for Parameters that are Strings
   if (isNaN(primaryLevel) === true ){
     console.log('It is a string')
   }
