@@ -5,6 +5,8 @@ backend/.env
 backend/json/items/**/
 backend/json/characters/**/
 backend/json/itemsets/**/
+backend/json/achievements/**/
+
 
 
 
