@@ -4,10 +4,13 @@ var request = require('request');
 var path = require('path');
 var qs = require('querystring');
 var gutil = require('gulp-util');
+var splitFolderBuild = require('../middlewares/splitfolderbuild');
 require('dotenv').config();
 var fs = require('fs');
 
 router.get('/:server/:charactername', function(req, res, next) {
+  splitFolderBuild("characters", req.params.server, req.params.charactername);
+
   console.log("current time: ", Date.now())
   var server = req.params.server
   var character = req.params.charactername

@@ -8,43 +8,74 @@ var gutil = require('gulp-util');
 require('dotenv').config();
 
 module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel){
-  console.log(isNaN(primaryLevel))
+  console.log('baseIndex: ', baseIndex)
+  console.log('primaryLevel: ', primaryLevel)
+  console.log('secondaryLevel: ', secondaryLevel)
+  console.log('tertiaryLevel: ', tertiaryLevel)
+  if (primaryLevel != undefined && secondaryLevel == undefined && tertiaryLevel == undefined){
+    console.log('Slash 1')
+    var divisionLevel = primaryLevel
+  } else if (primaryLevel != undefined && secondaryLevel != undefined && tertiaryLevel == undefined){
+    console.log('Slash 2')
+    var division2Level = primaryLevel
+    var divisionLevel = secondaryLevel
+  } else if (primaryLevel != undefined && secondaryLevel != undefined && tertiaryLevel != undefined) {
+    console.log('Slash 3')
+    var division3Level = primaryLevel
+    var division2Level = secondayLevel
+    var divisionLevel = tertiaryLevel
+  } else {
+    console.log('There was a division error')
+  }
+
+
+
+
+  console.log(isNaN(divisionLevel))
   if (!fs.existsSync('./json/'+baseIndex)){
     console.log(gutil.colors.green("The "+baseIndex+" directory has been created."));
     fs.mkdirSync('./json/'+baseIndex);
   }
   // This is the section for Parameters that are numbers
-  if (isNaN(primaryLevel) === false ){
-    var folderIndex = primaryLevel.slice(0, primaryLevel.length -3)
-    if (primaryLevel < 1000) folderIndex = 0
+  if (isNaN(divisionLevel) === false ){
+    var folderIndex = divisionLevel.slice(0, divisionLevel.length -3)
+    if (divisionLevel < 1000) folderIndex = 0
     console.log("the number ",folderIndex)
     if (!fs.existsSync('./json/' + baseIndex + '/' + folderIndex)){
       console.log(gutil.colors.green("it makes it to this point!"));
       fs.mkdirSync('./json/' + baseIndex + '/' + folderIndex);
     }
-    if (!fs.existsSync('./json/' + baseIndex + '/' + folderIndex + '/'+ primaryLevel + '.json')) {
-      fs.writeFileSync('./json/' + baseIndex + '/' + folderIndex + '/'+ primaryLevel + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
+    if (!fs.existsSync('./json/' + baseIndex + '/' + folderIndex + '/'+ divisionLevel + '.json')) {
+      fs.writeFileSync('./json/' + baseIndex + '/' + folderIndex + '/'+ divisionLevel + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
       console.log(gutil.colors.green("it makes it to this point 2!"));
     }
   }
   // This is the section for Parameters that are Strings
-  if (isNaN(primaryLevel) === true ){
+  if (isNaN(divisionLevel) === true ){
+
     console.log('It is a string')
+    console.log("current time: ", Date.now())
+    var twoSplit = division2Level
+    var oneSplit = divisionLevel
+    var firstLetter = oneSplit.charAt(0).toUpperCase()
+    console.log("First Letter ", firstLetter)
+
+
+    if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit)){
+        fs.mkdirSync('./json/' + baseIndex + '/' + twoSplit);
+    }
+    if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter)){
+        fs.mkdirSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter);
+    }
+    if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json')) {
+      fs.writeFileSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
+      console.log("it makes it to this point!")
+    }
+
+
   }
 
 
 
 
 }
-
-
-// module.exports = function(plural, folderIndex, folderArea, single){
-//   console.log('Item Folder Create Module Running.....');
-//   console.log(gutil.colors.green(plural, folderIndex, folderArea, single));
-//
-
-//   if (!fs.existsSync('./json/'+plural+'/' + folderIndex + '/'+ folderArea + '.json')) {
-//     fs.writeFileSync('./json/'+plural+'/' + folderIndex + '/'+ folderArea + '.json', '{"lastUpdated":[0],"'+single+'":[]}')
-//     console.log(gutil.colors.green("it makes it to this point!"));
-//   }
-// }
