@@ -16,11 +16,16 @@ buildclearjson('zones', 'weekly');
 buildclearjson('serverstatus', 'hourly');
 buildclearjson('battlegrounds', 'daily');
 
+buildDirectory("achievements");
+buildDirectory("characters");
 buildDirectory("items");
 buildDirectory("itemsets");
-buildDirectory("characters");
-buildDirectory("achievements");
 buildDirectory("guilds");
+buildDirectory("quests");
+buildDirectory("recipes");
+buildDirectory("zones");
+
+
 
 
 

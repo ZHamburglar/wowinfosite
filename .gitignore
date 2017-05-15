@@ -7,6 +7,10 @@ backend/json/characters/**/
 backend/json/guilds/**/
 backend/json/items/**/
 backend/json/itemsets/**/
+backend/json/quests/**/
+backend/json/recipes/**/
+backend/json/zones/**/
+
 
 
 # Weekly

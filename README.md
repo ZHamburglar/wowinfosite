@@ -16,7 +16,8 @@ npm run build
 
 ### Routes Completed (for now)
 ```
-mounts.js
+wowdata.js
+wowmounts.js
 ```
 ### Todos
 #### Front End
