@@ -11,23 +11,11 @@ var fs = require('fs');
 router.get('/:server/:charactername', function(req, res, next) {
   splitFolderBuild("characters", req.params.server, req.params.charactername);
 
-  console.log("current time: ", Date.now())
   var server = req.params.server
   var character = req.params.charactername
   var firstLetter = character.charAt(0).toUpperCase()
   console.log("First Letter ", firstLetter)
 
-
-  if (!fs.existsSync('./json/characters/' + server)){
-      fs.mkdirSync('./json/characters/' + server);
-  }
-  if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter)){
-      fs.mkdirSync('./json/characters/' + server + '/' + firstLetter);
-  }
-  if (!fs.existsSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json')) {
-    fs.writeFileSync('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', '{"lastUpdated":[0],"character":[]}')
-    console.log("it makes it to this point!")
-  }
 
 
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {

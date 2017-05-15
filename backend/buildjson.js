@@ -20,6 +20,8 @@ buildDirectory("items");
 buildDirectory("itemsets");
 buildDirectory("characters");
 buildDirectory("achievements");
+buildDirectory("guilds");
+
 
 
 
