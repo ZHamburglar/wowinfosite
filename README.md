@@ -1,6 +1,6 @@
-# wowinfosite
+# WoW Database Backend
 
-At the current moment the project is meant for running on the local machine, but if you want to scale then you will want to convert it from writing to JSON to writing to a database
+At the current moment the project is meant for running on the local machine, but if you want to scale then you will want to convert it from writing to JSON to writing to a database.
 
 ## Getting Started
 1. Get a API Developer key from dev.blizzard.com
