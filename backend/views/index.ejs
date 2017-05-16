@@ -7,13 +7,14 @@
   </head>
   <body>
     <h1 class="title">WoW Info Backend</h1>
-    <video id="my-video" class="video" autoplay="autoplay" loop="loop" muted="" width="600" height="300">
-      <source src="/animatedimages/deathwing.webm" type="video/webm" /></video>
+    <video id="my-video" class="video" autoplay="autoplay" loop="loop" muted="" width="100%" height="300">
+      <source src="<%= gif %>" type="video/webm" /></video>
 
     <div class="main">
       <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
       <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
       <p>List of available routes w/ examples:</p>
+      <%= gif %>
     </div>
 
     <div class="container-fluid">
