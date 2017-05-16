@@ -1,141 +1,169 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1 class="title">WoW Info Backend</h1>
+</head>
+
+<body>
+  <div class="videoheader">
+    <div class="content">
+          <img src="/images/World_of_Warcraft_logo.png" class="logo" alt="WoW Logo">
+          <h1 class="logoline">BACKEND</h1>
+          <div class="mainbox text-center">
+            <div class="main">
+                <p>To make a call you will need an API key, which can be acquired at:
+                  <div class="Button-outer">
+                        <a href="https://dev.battle.net">DEV.BATTLE.NET/</a>
+                  </div>
+                </p>
+                <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
+                <p>List of available routes w/ examples:</p>
+            </div>
+          </div>
+
+        <!-- <h1 class="content__heading">Welcome To My Product</h1>
+        <p class="content__teaser">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit qui voluptatum enim est deserunt assumenda, aspernatur quam aperiam!</p> -->
+    </div>
     <video id="my-video" class="video" autoplay="autoplay" loop="loop" muted="" width="100%" height="300">
       <source src="<%= gif %>" type="video/webm" /></video>
 
+  </div>
+
     <div class="main">
-      <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
-      <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
-      <p>List of available routes w/ examples:</p>
-      <%= gif %>
+        <p>To make a call you will need an API key, which can be acquired at https://dev.battle.net/</p>
+        <p>Name the API key: BATTLENET_API_KEY and place it in the .env within the backend directory</p>
+        <p>List of available routes w/ examples:</p>
     </div>
 
+
     <div class="container-fluid">
-      <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Available Routes:</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href ="../">/</a></td>
-          <td>Sends you to the index/homepage.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowachievements/1014">/wowachievements/:achievementid</a></td>
-          <td>Displays an achievement that corresponds with the "achievmentid" parameter.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowauction/malganis">/wowauction/:serverid</a></td>
-          <td>Sends back a url of a .json file of the server's auction house listings in the "server" parameter.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowcharacter/malganis/weedmangoku">/wowcharacter/:server/:charactername</a></td>
-          <td>Sends back .json of the character data (general stats, activity feed, items equipped, professions, reputation, titles, achievements, statistics, talents, mounts, pets, progression) of a character as defined within the "server" parameter and "charactername" parameter</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/battlegroups">/wowdata/battlegroups</a></td>
-          <td>Lists the server battle groups.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/characterraces">/wowdata/characterraces</a></td>
-          <td>Sends back .json of the character races in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/characterclass">/wowdata/characterclasses</a></td>
-          <td>Sends back .json of the character classes in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/characterachievements">/wowdata/characterachievements</a></td>
-          <td>Sends back .json of achievements available to a character.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/guildrewards">/wowdata/guildrewards</a></td>
-          <td>Sends back .json of rewards that a guild can earn.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/guildperks">/wowdata/guildperks</a></td>
-          <td>Sends back .json of perks that a guild can earn.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/guildachievements">/wowdata/guildachievements</a></td>
-          <td>Sends back .json of the achievements that a guild can earn.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/itemclasses">/wowdata/itemclasses</a></td>
-          <td>Sends back .json of the the classes of items in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/talents">/wowdata/talents</a></td>
-          <td>Sends .json of talents available to all classes in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowdata/pettypes">/wowdata/pettypes</a></td>
-          <td>Sends .json of pet types.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowguild/malganis/Goon%20Squad">/wowguild/:server/:guildname</a></td>
-          <td>Sends back .json of a specific guild based on the server and guild name parameter, with spaces represented by the %20.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowitem/item/112666">/wowitem/item/:itemid</a></td>
-          <td>Sends back .json of a specific stats of an item.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowitem/set/1068">/wowitem/set/:setid</a></td>
-          <td>Sends back .json of an item setting including the item ids in the set as well as the set bonuses.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowmount">/wowmount</a></td>
-          <td>Sends back .json of the list of complete list of mounts in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowpets/ability/641">/wowpets/ability/:abilityid</a></td>
-          <td>Sends back .json of the ability for pets based on the ability id parameter.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowpets/species/255">/wowpets/species/:speciesid</a></td>
-          <td>Sends back .json of the species of an pet based on the species id.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowpets/stats/255/25/5/4">/wowpets/stats/:speciesid/:level/:breedid/:quality</a></td>
-          <td>Sends back .json of a pet's stats based on the species id, level, breed id, and quality parameters.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowpvpbg/3v3">/wowpvpbg/:size</a></td>
-          <td>Sends back .json of battlegrounds stats based on the size parameter, but not organized by server.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowquests/7101">/wowquests/:questid</a></td>
-          <td>Sends back .json of a specific quest based on the quest id parameter.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowrecipes/7751">/wowrecipes/:recipeid</a></td>
-          <td>Sends back .json of a specific recipe based on the recipe id parameter.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowserverstatus/">/wowserverstatus/</a></td>
-          <td>Sends back .json of server statuses of all the servers at the current time.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowzones/">/wowzones/</a></td>
-          <td>Sends back .json of the complete list of zones in the game.</td>
-        </tr>
-        <tr>
-          <td><a href ="../wowzones/4100">/wowzones/:zoneid</a></td>
-          <td>Sends back .json of a specific zone in the game.</td>
-        </tr>
-      </tbody>
-    </table>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Available Routes:</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="../">/</a></td>
+                    <td>Sends you to the index/homepage.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowachievements/1014">/wowachievements/:achievementid</a></td>
+                    <td>Displays an achievement that corresponds with the "achievmentid" parameter.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowauction/malganis">/wowauction/:serverid</a></td>
+                    <td>Sends back a url of a .json file of the server's auction house listings in the "server" parameter.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowcharacter/malganis/weedmangoku">/wowcharacter/:server/:charactername</a></td>
+                    <td>Sends back .json of the character data (general stats, activity feed, items equipped, professions, reputation, titles, achievements, statistics, talents, mounts, pets, progression) of a character as defined within the "server" parameter
+                        and "charactername" parameter</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/battlegroups">/wowdata/battlegroups</a></td>
+                    <td>Lists the server battle groups.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/characterraces">/wowdata/characterraces</a></td>
+                    <td>Sends back .json of the character races in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/characterclass">/wowdata/characterclasses</a></td>
+                    <td>Sends back .json of the character classes in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/characterachievements">/wowdata/characterachievements</a></td>
+                    <td>Sends back .json of achievements available to a character.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/guildrewards">/wowdata/guildrewards</a></td>
+                    <td>Sends back .json of rewards that a guild can earn.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/guildperks">/wowdata/guildperks</a></td>
+                    <td>Sends back .json of perks that a guild can earn.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/guildachievements">/wowdata/guildachievements</a></td>
+                    <td>Sends back .json of the achievements that a guild can earn.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/itemclasses">/wowdata/itemclasses</a></td>
+                    <td>Sends back .json of the the classes of items in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/talents">/wowdata/talents</a></td>
+                    <td>Sends .json of talents available to all classes in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowdata/pettypes">/wowdata/pettypes</a></td>
+                    <td>Sends .json of pet types.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowguild/malganis/Goon%20Squad">/wowguild/:server/:guildname</a></td>
+                    <td>Sends back .json of a specific guild based on the server and guild name parameter, with spaces represented by the %20.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowitem/item/112666">/wowitem/item/:itemid</a></td>
+                    <td>Sends back .json of a specific stats of an item.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowitem/set/1068">/wowitem/set/:setid</a></td>
+                    <td>Sends back .json of an item setting including the item ids in the set as well as the set bonuses.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowmount">/wowmount</a></td>
+                    <td>Sends back .json of the list of complete list of mounts in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowpets/ability/641">/wowpets/ability/:abilityid</a></td>
+                    <td>Sends back .json of the ability for pets based on the ability id parameter.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowpets/species/255">/wowpets/species/:speciesid</a></td>
+                    <td>Sends back .json of the species of an pet based on the species id.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowpets/stats/255/25/5/4">/wowpets/stats/:speciesid/:level/:breedid/:quality</a></td>
+                    <td>Sends back .json of a pet's stats based on the species id, level, breed id, and quality parameters.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowpvpbg/3v3">/wowpvpbg/:size</a></td>
+                    <td>Sends back .json of battlegrounds stats based on the size parameter, but not organized by server.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowquests/7101">/wowquests/:questid</a></td>
+                    <td>Sends back .json of a specific quest based on the quest id parameter.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowrecipes/7751">/wowrecipes/:recipeid</a></td>
+                    <td>Sends back .json of a specific recipe based on the recipe id parameter.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowserverstatus/">/wowserverstatus/</a></td>
+                    <td>Sends back .json of server statuses of all the servers at the current time.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowzones/">/wowzones/</a></td>
+                    <td>Sends back .json of the complete list of zones in the game.</td>
+                </tr>
+                <tr>
+                    <td><a href="../wowzones/4100">/wowzones/:zoneid</a></td>
+                    <td>Sends back .json of a specific zone in the game.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </body>
+</body>
+
 </html>

@@ -1,6 +1,8 @@
 @font-face {
-    font-family: 'LifeCraft'; /*a name to be used later*/
-    src: url('/fonts/LifeCraft_Font.ttf'); /*URL to font*/
+  font-family: 'LifeCraft';
+  /*a name to be used later*/
+  src: url('/fonts/LifeCraft_Font.ttf');
+  /*URL to font*/
 }
 
 body {
@@ -13,14 +15,17 @@ body {
 a {
   color: #00B7FF;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 h1 {
-  font-family: 'LifeCraft';
-  font-size: 72px;
+/*   font-family: 'LifeCraft';
+ */  font-size: 72px;
 }
-.title{
+
+.title {
   text-align: center;
   padding: 30px;
 }
@@ -31,4 +36,109 @@ p {
 
 .main {
   padding: 20px;
+  font-family: "Open Sans",Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    font-size: 1.296rem;
+    line-height: 1.5em;
+    color: #ebdec2;
+    text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Oxygen", sans-serif;
+  line-height: 1.5;
+}
+
+
+/* =============================================================================
+  CONTENT
+============================================================================= */
+
+.content {
+  position: relative;
+  top: 30%;
+  z-index: 2;
+  margin: 0 auto;
+  max-width: 720px;
+  text-align: center;
+}
+
+.content__heading {
+  margin-bottom: 24px;
+  color: #272727;
+  font-size: 44px;
+}
+
+.content__teaser {
+  margin-bottom: 24px;
+  color: #595959;
+  font-size: 22px;
+}
+
+.content__cta {
+  display: inline-block;
+  margin: 0;
+  padding: 12px 48px;
+  color: #ff3c64;
+  font-size: 22px;
+  text-decoration: none;
+  border: solid 4px #ff3c64;
+}
+
+
+/* =============================================================================
+  VIDEO
+============================================================================= */
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  position: relative;
+  width: 60%;
+  height: 60%;
+  margin: 15px;
+  top: -30px;
+}
+
+.logoline {
+  display: inline;
+  position: relative;
+  top: -45px;
+
+  font-family: "Semplicita Pro", "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 3.225rem;
+  line-height: 1.5em;
+  color: #fff;
+  text-shadow: 0 0 1px transparent, 0 0 5px rgba(0, 0, 0, .8);
+  white-space: nowrap
+}
+
+.videoheader {
+  margin-bottom: 500px;
+}
+
+.mainbox {
+  background-color: rgba(32, 37, 43, 0.9);
+}
+
+body > div.videoheader > div > div > div > div > a{
+  color: rgba(104, 195, 25, 0.9);
 }
