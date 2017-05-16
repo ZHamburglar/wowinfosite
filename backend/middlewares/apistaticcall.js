@@ -26,8 +26,16 @@ module.exports = function(req, res, next, url, timePeriod, directoryIndex) {
           console.log('Done!')
         })
       })
-      console.log('error:', error);
-      console.log('statusCode:', response && response.statusCode);
+      console.log('error:', gutil.colors.red(error));
+      if (response.statusCode >= 200 && response.statusCode < 300){
+        console.log('statusCode:', response && gutil.colors.green(response.statusCode))
+      } else if (response.statusCode >= 300 && response.statusCode < 400){
+        console.log('statusCode:', response && gutil.colors.yellow(response.statusCode))
+      } else if (response.statusCode >= 400 && response.statusCode < 500){
+        console.log('statusCode:', response && gutil.colors.red(response.statusCode))
+      } else if (response.statusCode >= 500 && response.statusCode < 600){
+        console.log('statusCode:', response && gutil.colors.red(response.statusCode))
+      }
       // console.log('body:', body);
       var filePath = './json/'+timePeriod+'/'+directoryIndex+'.json'
       var resolvedPath = path.resolve(filePath);
