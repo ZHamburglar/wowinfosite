@@ -15,9 +15,6 @@ router.get('/:server/:charactername', function(req, res, next) {
   var character = req.params.charactername
   var firstLetter = character.charAt(0).toUpperCase()
   console.log("First Letter ", firstLetter)
-
-
-
     fs.readFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', 'utf-8', function(err, data) {
       if (err) throw err
       var arrayOfObjects = JSON.parse(data)

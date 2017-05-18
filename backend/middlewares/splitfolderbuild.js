@@ -22,9 +22,6 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
     console.log('There was a division error')
   }
 
-
-
-
   console.log(isNaN(divisionLevel))
   if (!fs.existsSync('./json/'+baseIndex)){
     console.log(gutil.colors.green("The "+baseIndex+" directory has been created."));
@@ -46,15 +43,12 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
   }
   // This is the section for Parameters that are Strings
   if (isNaN(divisionLevel) === true ){
-
     console.log('It is a string')
     console.log("current time: ", Date.now())
     var twoSplit = division2Level
     var oneSplit = divisionLevel
     var firstLetter = oneSplit.charAt(0).toUpperCase()
     console.log("First Letter ", firstLetter)
-
-
     if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit)){
         fs.mkdirSync('./json/' + baseIndex + '/' + twoSplit);
     }
@@ -69,11 +63,5 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
       fs.writeFileSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
       console.log("it makes it to this point!")
     }
-
-
   }
-
-
-
-
 }
