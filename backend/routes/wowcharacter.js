@@ -31,8 +31,10 @@ router.get('/:server/:charactername', function(req, res, next) {
               arrayOfObjects.lastUpdated = [];
               arrayOfObjects.lastUpdated.push(Date.now())
               jsonconvert = JSON.parse(body)
-              arrayOfObjects.character = [];
-              arrayOfObjects.character.push(jsonconvert);
+              arrayOfObjects.characters = [];
+              arrayOfObjects.characters.push(jsonconvert);
+              arrayOfObjects.history.push(jsonconvert.lastModified);
+              console.log("History push update")
               console.log('arrayOfObjects ', arrayOfObjects)
               fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
                 if (err) throw err

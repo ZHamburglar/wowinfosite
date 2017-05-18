@@ -67,6 +67,10 @@ module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel
     if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter)){
         fs.mkdirSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter);
     }
+    if (baseIndex=="characters" && !fs.existsSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json')) {
+      fs.writeFileSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json', '{"lastUpdated":[0],"history":[],"' + baseIndex + '":[]}')
+      console.log("it makes it to this point for characters")
+    }
     if (!fs.existsSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json')) {
       fs.writeFileSync('./json/' + baseIndex + '/' + twoSplit + '/' + firstLetter + '/' + oneSplit + '.json', '{"lastUpdated":[0],"' + baseIndex + '":[]}')
       console.log("it makes it to this point!")
