@@ -51,8 +51,6 @@ router.get('/:server/:charactername', function(req, res, next) {
                 "totalDamageDone":jsonconvert.statistics.subCategories[1].statistics[2].quantity,
                 "questsCompleted":jsonconvert.statistics.subCategories[4].statistics[0].quantity,
               });
-              console.log("History push update")
-              console.log('arrayOfObjects ', arrayOfObjects)
               fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
                 if (err) throw err
                 console.log('JSON Sent!');
@@ -63,7 +61,6 @@ router.get('/:server/:charactername', function(req, res, next) {
             console.log('statusCode:', response && response.statusCode);
           });
       } else {
-        console.log('sanity check else')
         sendJSON();
       }
     });

@@ -8,19 +8,13 @@ var gutil = require('gulp-util');
 require('dotenv').config();
 
 module.exports = function(baseIndex, primaryLevel, secondaryLevel, tertiaryLevel){
-  console.log('baseIndex: ', baseIndex)
-  console.log('primaryLevel: ', primaryLevel)
-  console.log('secondaryLevel: ', secondaryLevel)
-  console.log('tertiaryLevel: ', tertiaryLevel)
+  console.log('baseIndex: ', baseIndex, '  primaryLevel: ', primaryLevel,'  secondaryLevel: ', secondaryLevel,'  tertiaryLevel: ', tertiaryLevel)
   if (primaryLevel != undefined && secondaryLevel == undefined && tertiaryLevel == undefined){
-    console.log('Slash 1')
     var divisionLevel = primaryLevel
   } else if (primaryLevel != undefined && secondaryLevel != undefined && tertiaryLevel == undefined){
-    console.log('Slash 2')
     var division2Level = primaryLevel
     var divisionLevel = secondaryLevel
   } else if (primaryLevel != undefined && secondaryLevel != undefined && tertiaryLevel != undefined) {
-    console.log('Slash 3')
     var division3Level = primaryLevel
     var division2Level = secondayLevel
     var divisionLevel = tertiaryLevel
