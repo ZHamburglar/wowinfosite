@@ -40,7 +40,16 @@ router.get('/:server/:charactername', function(req, res, next) {
                 "itemLevel":jsonconvert.items.averageItemLevel,
                 "honorableKills":jsonconvert.totalHonorableKills,
                 "achievementPoints":jsonconvert.achievementPoints,
-                "level":jsonconvert.level
+                "level":jsonconvert.level,
+                "health":jsonconvert.stats.health,
+                "mana":jsonconvert.stats.power,
+                "str":jsonconvert.stats.str,
+                "agi":jsonconvert.stats.agi,
+                "int":jsonconvert.stats.int,
+                "sta":jsonconvert.stats.sta,
+                "titles":jsonconvert.titles.length,
+                "totalDamageDone":jsonconvert.statistics.subCategories[1].statistics[2].quantity,
+                "questsCompleted":jsonconvert.statistics.subCategories[4].statistics[0].quantity,
               });
               console.log("History push update")
               console.log('arrayOfObjects ', arrayOfObjects)
