@@ -22,7 +22,9 @@ router.get('/:server/:charactername', function(req, res, next) {
       if (err) throw err
       var arrayOfObjects = JSON.parse(data)
       lastJSONUpdate = arrayOfObjects.lastUpdated
-      if ((Date.now() - lastJSONUpdate) > 100000000) {
+      // if ((Date.now() - lastJSONUpdate) > 100000000) {
+
+      if ((Date.now() - lastJSONUpdate) > 1000) {
         request('https://us.api.battle.net/wow/character/' + req.params.server + '/' + req.params.charactername + '?fields=audit,titles,talents,stats,statistics,reputation,quests,pvp,progression,professions,petSlots,mounts,pets,feed,items,achievements,appearance,guild,hunterPets&locale=en_US&apikey=' + process.env.BATTLENET_API_KEY,
           function(error, response, body) {
             if(error) console.log("THERE WAS AN ERROR ", error)
@@ -33,7 +35,13 @@ router.get('/:server/:charactername', function(req, res, next) {
               jsonconvert = JSON.parse(body)
               arrayOfObjects.characters = [];
               arrayOfObjects.characters.push(jsonconvert);
-              arrayOfObjects.history.push(jsonconvert.lastModified);
+              arrayOfObjects.history.push({
+                "timestamp":jsonconvert.lastModified,
+                "itemLevel":jsonconvert.items.averageItemLevel,
+                "honorableKills":jsonconvert.totalHonorableKills,
+                "achievementPoints":jsonconvert.achievementPoints,
+                "level":jsonconvert.level
+              });
               console.log("History push update")
               console.log('arrayOfObjects ', arrayOfObjects)
               fs.writeFile('./json/characters/' + server + '/' + firstLetter + '/' + character + '.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
