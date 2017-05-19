@@ -20,6 +20,7 @@
     "gutil": "^1.6.4",
     "mongoose": "^4.9.6",
     "morgan": "~1.7.0",
+    "nodemailer": "^4.0.1",
     "path": "^0.12.7",
     "querystring": "^0.2.0",
     "request": "^2.81.0",
