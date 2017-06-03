@@ -17,6 +17,8 @@ router.get('/', function(req, res, next) {
     if (err) throw err
     var arrayOfObjects = JSON.parse(data)
     lastJSONUpdate = arrayOfObjects.lastUpdated
+    // if ((Date.now() - lastJSONUpdate) > 5000000) {
+
     if ((Date.now() - lastJSONUpdate) > 5000000) {
       request('https://us.api.battle.net/wow/realm/status?locale=en_US&apikey='+process.env.BATTLENET_API_KEY,
         function(error, response, body) {
@@ -28,7 +30,25 @@ router.get('/', function(req, res, next) {
             jsonconvert = JSON.parse(body)
             arrayOfObjects.serverstatus = [];
             arrayOfObjects.serverstatus.push(jsonconvert);
-            // console.log('arrayOfObjects ', arrayOfObjects)
+            // arrayOfObjects.serverlist = [];
+            // len = arrayOfObjects.serverstatus[0].realms.length
+            // for (i = 0; i < len; i++) {
+            //   arrayOfObjects.serverlist.push(
+            //     "<Picker.Item label='"+
+            //     arrayOfObjects.serverstatus[0].realms[i].name+"' value='"+
+            //     arrayOfObjects.serverstatus[0].realms[i].slug
+            //     +"'/>"
+            //
+            //   );
+            // }
+
+
+            console.log("Length: ", arrayOfObjects.serverstatus[0].realms.length)
+            var counter = 0
+            var arrOfObj = arrayOfObjects.serverstatus[0].realms;
+            arrOfObj.map(function (obj, i) {
+              obj.id = i;
+            });
             fs.writeFile('./json/hourly/serverstatus.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
               if (err) throw err
               console.log(gutil.colors.green('JSON Sent!'));
@@ -52,7 +72,12 @@ router.get('/', function(req, res, next) {
     }
   });
 
+  function addNewId() {
+    console.log("Hello adding by ID")
+  }
+
   function sendJSON() {
+    addNewId()
     var filePath = './json/hourly/serverstatus.json'
     var resolvedPath = path.resolve(filePath);
     console.log("JSON Being sent: ", resolvedPath);

@@ -25,14 +25,6 @@ buildDirectory("quests");
 buildDirectory("recipes");
 buildDirectory("zones");
 
-
-
-
-
-
-
-
-
 function buildclearjson(extension, timeline){
      fs.writeFile('./json/'+timeline+'/'+extension+'.json', '{"lastUpdated":[],"'+extension+'":[]}', function (err) {
           if (err) throw err;
@@ -46,7 +38,4 @@ function buildclearjson(extension, timeline){
     }
   }
 
-
-
-
-console.log('Clear JSON Script is working.')
+console.log('Build JSON Script is working.')
