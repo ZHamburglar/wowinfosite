@@ -18,6 +18,7 @@
     "fs": "0.0.1-security",
     "gulp-util": "^3.0.8",
     "gutil": "^1.6.4",
+    "ip": "^1.1.5",
     "mongoose": "^4.9.6",
     "morgan": "~1.7.0",
     "nodemailer": "^4.0.1",
