@@ -6,6 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var cors = require('cors');
+// added
+var debug = require('debug')('backend:server');
+var http = require('http');
+var ip = require("ip");
+var gutil = require('gulp-util');
 
 
 
@@ -26,6 +31,26 @@ var wowdata = require('./routes/wowdata');
 
 var app = express();
 
+var port = Number(process.env.PORT || 8080);
+
+app.set('port', port);
+var localIPHost = ip.address()+":"+port
+console.log(gutil.colors.green.bold("Hosted locally on: ")+gutil.colors.yellow.bold("http:/localhost")+gutil.colors.magenta.bold(":")+gutil.colors.red.bold(port)+gutil.colors.green.bold(" or on local area at: ")+gutil.colors.yellow.bold(ip.address())+gutil.colors.magenta.bold(":")+gutil.colors.red.bold(port))
+
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

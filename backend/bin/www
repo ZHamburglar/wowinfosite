@@ -16,7 +16,7 @@ var gutil = require('gulp-util');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = Number(process.env.PORT || 8080);
 app.set('port', port);
 var localIPHost = ip.address()+":"+port
 console.log(gutil.colors.green.bold("Hosted locally on: ")+gutil.colors.yellow.bold("http:/localhost")+gutil.colors.magenta.bold(":")+gutil.colors.red.bold(port)+gutil.colors.green.bold(" or on local area at: ")+gutil.colors.yellow.bold(ip.address())+gutil.colors.magenta.bold(":")+gutil.colors.red.bold(port))
