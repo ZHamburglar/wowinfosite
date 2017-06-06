@@ -7,7 +7,6 @@ var fs = require('fs');
 var gutil = require('gulp-util');
 require('dotenv').config();
 
-
 module.exports = function(req, res, next, url, timePeriod, directoryIndex) {
   request(url+process.env.BATTLENET_API_KEY,
     function (error, response, body) {
